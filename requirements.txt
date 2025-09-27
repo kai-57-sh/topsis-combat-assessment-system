@@ -1,0 +1,25 @@
+# TOPSIS作战评估系统 - Python依赖包
+# 基于《简化TOPSIS评估项目特定规范》配置
+
+# 核心数据处理库
+numpy>=1.21.0
+pandas>=1.3.0
+
+# Web界面框架
+streamlit>=1.28.0
+
+# 图表可视化
+plotly>=5.0.0
+
+# 配置文件处理
+PyYAML>=6.0
+
+# 开发和测试依赖（可选）
+pytest>=6.0.0
+pytest-cov>=2.12.0
+
+# 日志和调试（内置库，无需安装）
+# logging - Python标准库
+# typing - Python标准库
+# dataclasses - Python标准库 (3.7+)
+# sys, os - Python标准库
