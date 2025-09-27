@@ -1,0 +1,543 @@
+# 作战场景配置文件
+# 定义四类典型作战场景的参数和评估指标
+
+scenarios:
+  chokepoint_blockade:
+    name: "要峡封控作战"
+    name_en: "Chokepoint Blockade"
+    description: "评估要道封锁作战体系的效能"
+    parameters:
+      # 兵力配置参数 (4-5个)
+      - name: "force_size"
+        name_en: "Force Size"
+        type: "force"
+        min_value: 100
+        max_value: 1000
+        default_value: 500
+        description: "参战兵力数量"
+        is_benefit: true  # 效益型指标
+
+      - name: "ship_count"
+        name_en: "Ship Count"
+        type: "force"
+        min_value: 5
+        max_value: 50
+        default_value: 25
+        description: "舰船数量"
+        is_benefit: true
+
+      - name: "aircraft_count"
+        name_en: "Aircraft Count"
+        type: "force"
+        min_value: 10
+        max_value: 100
+        default_value: 50
+        description: "飞机数量"
+        is_benefit: true
+
+      - name: "personnel_quality"
+        name_en: "Personnel Quality"
+        type: "force"
+        min_value: 0.5
+        max_value: 1.0
+        default_value: 0.8
+        description: "人员素质评分"
+        is_benefit: true
+
+      # 装备性能参数 (4-5个)
+      - name: "weapon_effectiveness"
+        name_en: "Weapon Effectiveness"
+        type: "equipment"
+        min_value: 0.3
+        max_value: 1.0
+        default_value: 0.7
+        description: "武器系统效能"
+        is_benefit: true
+
+      - name: "sensor_capability"
+        name_en: "Sensor Capability"
+        type: "equipment"
+        min_value: 0.3
+        max_value: 1.0
+        default_value: 0.75
+        description: "传感器探测能力"
+        is_benefit: true
+
+      - name: "communication_reliability"
+        name_en: "Communication Reliability"
+        type: "equipment"
+        min_value: 0.5
+        max_value: 1.0
+        default_value: 0.85
+        description: "通信系统可靠性"
+        is_benefit: true
+
+      - name: "electronic_warfare"
+        name_en: "Electronic Warfare"
+        type: "equipment"
+        min_value: 0.2
+        max_value: 1.0
+        default_value: 0.6
+        description: "电子战能力"
+        is_benefit: true
+
+      # 环境条件参数 (3-4个)
+      - name: "sea_state"
+        name_en: "Sea State"
+        type: "environment"
+        min_value: 1
+        max_value: 5
+        default_value: 3
+        description: "海况等级(1-最好,5-最差)"
+        is_benefit: false  # 成本型指标
+
+      - name: "visibility"
+        name_en: "Visibility"
+        type: "environment"
+        min_value: 0.1
+        max_value: 1.0
+        default_value: 0.6
+        description: "能见度条件"
+        is_benefit: true
+
+      - name: "weather_severity"
+        name_en: "Weather Severity"
+        type: "environment"
+        min_value: 1
+        max_value: 5
+        default_value: 2
+        description: "气象恶劣程度(1-最好,5-最差)"
+        is_benefit: false
+
+      # 任务需求参数 (3-4个)
+      - name: "blockade_effectiveness"
+        name_en: "Blockade Effectiveness"
+        type: "mission"
+        min_value: 0.3
+        max_value: 1.0
+        default_value: 0.8
+        description: "封锁效能要求"
+        is_benefit: true
+
+      - name: "response_time"
+        name_en: "Response Time"
+        type: "mission"
+        min_value: 1
+        max_value: 24
+        default_value: 6
+        description: "响应时间(小时)"
+        is_benefit: false
+
+      - name: "mission_duration"
+        name_en: "Mission Duration"
+        type: "mission"
+        min_value: 24
+        max_value: 240
+        default_value: 72
+        description: "任务持续时间(小时)"
+        is_benefit: false
+
+  landing_zone_clearance:
+    name: "登陆场通道清扫"
+    name_en: "Landing Zone Clearance"
+    description: "评估登陆场清扫作战体系的效能"
+    parameters:
+      # 兵力配置参数
+      - name: "amphibious_force"
+        name_en: "Amphibious Force"
+        type: "force"
+        min_value: 500
+        max_value: 5000
+        default_value: 2000
+        description: "两栖作战兵力"
+        is_benefit: true
+
+      - name: "naval_vessels"
+        name_en: "Naval Vessels"
+        type: "force"
+        min_value: 10
+        max_value: 80
+        default_value: 40
+        description: "海军舰船数量"
+        is_benefit: true
+
+      - name: "air_support"
+        name_en: "Air Support"
+        type: "force"
+        min_value: 20
+        max_value: 150
+        default_value: 75
+        description: "空中支援架次"
+        is_benefit: true
+
+      - name: "special_forces"
+        name_en: "Special Forces"
+        type: "force"
+        min_value: 50
+        max_value: 500
+        default_value: 200
+        description: "特种部队人数"
+        is_benefit: true
+
+      # 装备性能参数
+      - name: "mine_clearance_efficiency"
+        name_en: "Mine Clearance Efficiency"
+        type: "equipment"
+        min_value: 0.2
+        max_value: 1.0
+        default_value: 0.7
+        description: "扫雷效率"
+        is_benefit: true
+
+      - name: "fire_support_accuracy"
+        name_en: "Fire Support Accuracy"
+        type: "equipment"
+        min_value: 0.4
+        max_value: 1.0
+        default_value: 0.8
+        description: "火力支援精度"
+        is_benefit: true
+
+      - name: "landing_craft_capacity"
+        name_en: "Landing Craft Capacity"
+        type: "equipment"
+        min_value: 100
+        max_value: 2000
+        default_value: 800
+        description: "登陆艇运载能力"
+        is_benefit: true
+
+      - name: "medical_support"
+        name_en: "Medical Support"
+        type: "equipment"
+        min_value: 0.3
+        max_value: 1.0
+        default_value: 0.75
+        description: "医疗保障能力"
+        is_benefit: true
+
+      # 环境条件参数
+      - name: "beach_gradient"
+        name_en: "Beach Gradient"
+        type: "environment"
+        min_value: 1
+        max_value: 10
+        default_value: 5
+        description: "海滩坡度(1-最陡峭,10-最平缓)"
+        is_benefit: true
+
+      - name: "tidal_range"
+        name_en: "Tidal Range"
+        type: "environment"
+        min_value: 0.5
+        max_value: 5.0
+        default_value: 2.0
+        description: "潮差(米)"
+        is_benefit: false
+
+      - name: "wave_height"
+        name_en: "Wave Height"
+        type: "environment"
+        min_value: 0.5
+        max_value: 4.0
+        default_value: 1.5
+        description: "波高(米)"
+        is_benefit: false
+
+      # 任务需求参数
+      - name: "clearance_rate"
+        name_en: "Clearance Rate"
+        type: "mission"
+        min_value: 0.1
+        max_value: 1.0
+        default_value: 0.6
+        description: "清扫效率要求"
+        is_benefit: true
+
+      - name: "casualty_tolerance"
+        name_en: "Casualty Tolerance"
+        type: "mission"
+        min_value: 1
+        max_value: 20
+        default_value: 5
+        description: "伤亡容忍度(%)"
+        is_benefit: false
+
+      - name: "time_pressure"
+        name_en: "Time Pressure"
+        type: "mission"
+        min_value: 6
+        max_value: 72
+        default_value: 24
+        description: "时间压力(小时)"
+        is_benefit: false
+
+  mine_countermeasures:
+    name: "水雷清排作战"
+    name_en: "Mine Countermeasures"
+    description: "评估水雷清排作战体系的效能"
+    parameters:
+      # 兵力配置参数
+      - name: "mine_hunters"
+        name_en: "Mine Hunters"
+        type: "force"
+        min_value: 2
+        max_value: 20
+        default_value: 8
+        description: "猎雷舰数量"
+        is_benefit: true
+
+      - name: "mine_sweepers"
+        name_en: "Mine Sweepers"
+        type: "force"
+        min_value: 3
+        max_value: 25
+        default_value: 12
+        description: "扫雷舰数量"
+        is_benefit: true
+
+      - name: "diver_teams"
+        name_en: "Diver Teams"
+        type: "force"
+        min_value: 5
+        max_value: 50
+        default_value: 20
+        description: "潜水员队伍数"
+        is_benefit: true
+
+      - name: "explosive_ordnance_disposal"
+        name_en: "Explosive Ordnance Disposal"
+        type: "force"
+        min_value: 10
+        max_value: 100
+        default_value: 40
+        description: "爆破专家数量"
+        is_benefit: true
+
+      # 装备性能参数
+      - name: "sonar_detection"
+        name_en: "Sonar Detection"
+        type: "equipment"
+        min_value: 0.3
+        max_value: 1.0
+        default_value: 0.8
+        description: "声纳探测能力"
+        is_benefit: true
+
+      - name: "mine_neutralization"
+        name_en: "Mine Neutralization"
+        type: "equipment"
+        min_value: 0.4
+        max_value: 1.0
+        default_value: 0.75
+        description: "水雷中和能力"
+        is_benefit: true
+
+      - name: "robotic_systems"
+        name_en: "Robotic Systems"
+        type: "equipment"
+        min_value: 0.2
+        max_value: 1.0
+        default_value: 0.6
+        description: "无人系统效能"
+        is_benefit: true
+
+      - name: "command_control"
+        name_en: "Command Control"
+        type: "equipment"
+        min_value: 0.4
+        max_value: 1.0
+        default_value: 0.85
+        description: "指挥控制能力"
+        is_benefit: true
+
+      # 环境条件参数
+      - name: "water_depth"
+        name_en: "Water Depth"
+        type: "environment"
+        min_value: 10
+        max_value: 200
+        default_value: 50
+        description: "水深(米)"
+        is_benefit: false
+
+      - name: "current_speed"
+        name_en: "Current Speed"
+        type: "environment"
+        min_value: 0.1
+        max_value: 3.0
+        default_value: 1.0
+        description: "流速(节)"
+        is_benefit: false
+
+      - name: "visibility_underwater"
+        name_en: "Visibility Underwater"
+        type: "environment"
+        min_value: 0.1
+        max_value: 1.0
+        default_value: 0.4
+        description: "水下能见度"
+        is_benefit: true
+
+      # 任务需求参数
+      - name: "clearance_area"
+        name_en: "Clearance Area"
+        type: "mission"
+        min_value: 1
+        max_value: 100
+        default_value: 25
+        description: "清扫面积(平方公里)"
+        is_benefit: true
+
+      - name: "safety_level"
+        name_en: "Safety Level"
+        type: "mission"
+        min_value: 0.8
+        max_value: 1.0
+        default_value: 0.95
+        description: "安全等级要求"
+        is_benefit: true
+
+      - name: "operational_tempo"
+        name_en: "Operational Tempo"
+        type: "mission"
+        min_value: 6
+        max_value: 48
+        default_value: 18
+        description: "作战节奏(小时完成时间)"
+        is_benefit: false
+
+  underwater_surveillance:
+    name: "近岸水下监视"
+    name_en: "Underwater Surveillance"
+    description: "评估近岸水下监视作战体系的效能"
+    parameters:
+      # 兵力配置参数
+      - name: "submarine_force"
+        name_en: "Submarine Force"
+        type: "force"
+        min_value: 1
+        max_value: 10
+        default_value: 4
+        description: "潜艇数量"
+        is_benefit: true
+
+      - name: "surface_vessels"
+        name_en: "Surface Vessels"
+        type: "force"
+        min_value: 5
+        max_value: 30
+        default_value: 15
+        description: "水面舰船数量"
+        is_benefit: true
+
+      - name: "maritime_patrol"
+        name_en: "Maritime Patrol"
+        type: "force"
+        min_value: 2
+        max_value: 20
+        default_value: 8
+        description: "海上巡逻机架次"
+        is_benefit: true
+
+      - name: "sensor_operators"
+        name_en: "Sensor Operators"
+        type: "force"
+        min_value: 20
+        max_value: 200
+        default_value: 80
+        description: "传感器操作员数量"
+        is_benefit: true
+
+      # 装备性能参数
+      - name: "sonar_array_effectiveness"
+        name_en: "Sonar Array Effectiveness"
+        type: "equipment"
+        min_value: 0.3
+        max_value: 1.0
+        default_value: 0.8
+        description: "声纳阵列效能"
+        is_benefit: true
+
+      - name: "signal_processing"
+        name_en: "Signal Processing"
+        type: "equipment"
+        min_value: 0.4
+        max_value: 1.0
+        default_value: 0.85
+        description: "信号处理能力"
+        is_benefit: true
+
+      - name: "data_fusion"
+        name_en: "Data Fusion"
+        type: "equipment"
+        min_value: 0.3
+        max_value: 1.0
+        default_value: 0.7
+        description: "数据融合能力"
+        is_benefit: true
+
+      - name: "communication_security"
+        name_en: "Communication Security"
+        type: "equipment"
+        min_value: 0.5
+        max_value: 1.0
+        default_value: 0.9
+        description: "通信安全性"
+        is_benefit: true
+
+      # 环境条件参数
+      - name: "water_clarity"
+        name_en: "Water Clarity"
+        type: "environment"
+        min_value: 0.1
+        max_value: 1.0
+        default_value: 0.6
+        description: "水质清晰度"
+        is_benefit: true
+
+      - name: "bathymetry_complexity"
+        name_en: "Bathymetry Complexity"
+        type: "environment"
+        min_value: 1
+        max_value: 10
+        default_value: 5
+        description: "海底地形复杂度(1-最简单,10-最复杂)"
+        is_benefit: false
+
+      - name: "ambient_noise"
+        name_en: "Ambient Noise"
+        type: "environment"
+        min_value: 0.1
+        max_value: 1.0
+        default_value: 0.4
+        description: "环境噪声水平"
+        is_benefit: false
+
+      # 任务需求参数
+      - name: "coverage_area"
+        name_en: "Coverage Area"
+        type: "mission"
+        min_value: 100
+        max_value: 5000
+        default_value: 1000
+        description: "覆盖面积(平方公里)"
+        is_benefit: true
+
+      - name: "detection_probability"
+        name_en: "Detection Probability"
+        type: "mission"
+        min_value: 0.6
+        max_value: 0.95
+        default_value: 0.85
+        description: "探测概率要求"
+        is_benefit: true
+
+      - name: "false_alarm_rate"
+        name_en: "False Alarm Rate"
+        type: "mission"
+        min_value: 0.01
+        max_value: 0.2
+        default_value: 0.05
+        description: "虚警率要求"
+        is_benefit: false

@@ -1,0 +1,136 @@
+# 评估权重配置文件
+# 定义不同作战场景的评估权重分配
+
+weights:
+  # 要峡封控作战权重
+  chokepoint_blockade:
+    categories:
+      force: 0.35      # 兵力配置权重
+      equipment: 0.35  # 装备性能权重
+      environment: 0.15 # 环境条件权重
+      mission: 0.15    # 任务需求权重
+    indicators:
+      # 核心指标权重 (基于参数映射)
+      overall_combat_power: 0.25    # 总体作战能力
+      technological_superiority: 0.20  # 技术优势
+      environmental_adaptability: 0.15 # 环境适应性
+      mission_achievement: 0.25      # 任务达成度
+      operational_efficiency: 0.15   # 作战效率
+
+  # 登陆场通道清扫权重
+  landing_zone_clearance:
+    categories:
+      force: 0.30      # 兵力配置权重
+      equipment: 0.40  # 装备性能权重
+      environment: 0.20 # 环境条件权重
+      mission: 0.10    # 任务需求权重
+    indicators:
+      overall_combat_power: 0.20    # 总体作战能力
+      technological_superiority: 0.25  # 技术优势
+      environmental_adaptability: 0.20 # 环境适应性
+      mission_achievement: 0.25      # 任务达成度
+      operational_efficiency: 0.10   # 作战效率
+
+  # 水雷清排作战权重
+  mine_countermeasures:
+    categories:
+      force: 0.25      # 兵力配置权重
+      equipment: 0.45  # 装备性能权重
+      environment: 0.20 # 环境条件权重
+      mission: 0.10    # 任务需求权重
+    indicators:
+      overall_combat_power: 0.15    # 总体作战能力
+      technological_superiority: 0.35  # 技术优势
+      environmental_adaptability: 0.20 # 环境适应性
+      mission_achievement: 0.20      # 任务达成度
+      operational_efficiency: 0.10   # 作战效率
+
+  # 近岸水下监视权重
+  underwater_surveillance:
+    categories:
+      force: 0.20      # 兵力配置权重
+      equipment: 0.50  # 装备性能权重
+      environment: 0.20 # 环境条件权重
+      mission: 0.10    # 任务需求权重
+    indicators:
+      overall_combat_power: 0.15    # 总体作战能力
+      technological_superiority: 0.40  # 技术优势
+      environmental_adaptability: 0.20 # 环境适应性
+      mission_achievement: 0.15      # 任务达成度
+      operational_efficiency: 0.10   # 作战效率
+
+# 通用指标映射规则
+# 将输入参数映射到5个核心评估指标
+indicator_mapping:
+  overall_combat_power:
+    # 兵力配置参数
+    - force_size
+    - ship_count
+    - aircraft_count
+    - amphibious_force
+    - naval_vessels
+    - mine_hunters
+    - mine_sweepers
+    - submarine_force
+    - surface_vessels
+    - maritime_patrol  # 水下监视场景的空中力量参数
+    - air_support  # 登陆场清扫场景的空中支援参数
+    - diver_teams  # 水雷清排作战的潜水员参数
+    # 装备性能参数
+    - weapon_effectiveness
+    - sensor_capability
+    - mine_clearance_efficiency
+    - sonar_detection
+
+  technological_superiority:
+    # 装备性能参数
+    - communication_reliability
+    - electronic_warfare
+    - fire_support_accuracy
+    - mine_neutralization
+    - robotic_systems
+    - command_control
+    - sonar_array_effectiveness
+    - signal_processing
+    - data_fusion
+    - communication_security
+
+  environmental_adaptability:
+    # 环境条件参数
+    - sea_state
+    - visibility
+    - weather_severity
+    - beach_gradient
+    - tidal_range
+    - wave_height
+    - water_depth
+    - current_speed
+    - visibility_underwater
+    - water_clarity
+    - bathymetry_complexity
+    - ambient_noise
+
+  mission_achievement:
+    # 任务需求参数
+    - blockade_effectiveness
+    - clearance_rate
+    - clearance_area
+    - coverage_area
+    - detection_probability
+    - safety_level
+    - mission_duration
+    - time_pressure
+    - operational_tempo
+
+  operational_efficiency:
+    # 效率相关参数
+    - response_time
+    - casualty_tolerance
+    - explosive_ordnance_disposal
+    - maritime_patrol
+    - false_alarm_rate
+    - personnel_quality
+    - landing_craft_capacity
+    - medical_support
+    - diver_teams
+    - sensor_operators

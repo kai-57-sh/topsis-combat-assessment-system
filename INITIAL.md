@@ -1,15 +1,96 @@
 ## FEATURE:
 
-[Insert your feature here]
+构建一个简化的作战体系效能评估系统，提供直观的用户界面：
+
+### 核心功能流程：
+1. **场景选择**: 用户从四类典型作战场景中选择
+   - 要峡封控作战
+   - 登陆场通道清扫
+   - 水雷清排作战
+   - 近岸水下监视
+
+2. **参数输入**: 每个场景输入15-20个关键参数
+   - 兵力配置参数（4-5个）
+   - 装备性能参数（4-5个）
+   - 环境条件参数（3-4个）
+   - 任务需求参数（3-4个）
+
+3. **一键评估**: 点击评估按钮，自动计算
+   - 基于简化TOPSIS算法的综合评估
+   - 考虑5-8个核心指标
+   - 生成最终效能得分（0-1分）
+
+4. **全面前端显示**: 详细展示评估结果
+   - 总体得分和等级评定
+   - 各维度得分雷达图
+   - 优劣势分析图表
+   - 改进建议显示
+
+### 技术规格要求：
+
+- **编程语言**: Python 3.8+
+- **核心依赖**: NumPy, Pandas, Streamlit, Plotly
+- **界面形式**: Streamlit Web应用（单页面）
+- **评估算法**: 简化TOPSIS方法
+- **参数数量**: 每场景15-20个输入参数
+- **响应时间**: 评估计算<2秒
+- **显示要求**: 多图表、全面可视化展示
 
 ## EXAMPLES:
 
-[Provide and explain examples that you have in the `examples/` folder]
+在examples/文件夹中应包含以下示例：
+
+**examples/app.py**
+- 主应用程序，完整的Web界面演示
+
+**examples/config/**
+- `scenarios_config.yaml` - 四类场景配置文件
+- `weights_config.yaml` - 评估权重配置
+
+**examples/demo/**
+- `demo_data.json` - 演示数据
+- `expected_results.json` - 预期评估结果
 
 ## DOCUMENTATION:
 
-[List out any documentation (web pages, sources for an MCP server like Crawl4AI RAG, etc.) that will need to be referenced during development]
+### 核心文档
+- TOPSIS方法简化版：https://en.wikipedia.org/wiki/TOPSIS
+- Streamlit文档：https://docs.streamlit.io/
+- Plotly图表文档：https://plotly.com/python/
+
+### 实现指南
+- 简化的评估算法实现
+- 前端界面设计最佳实践
+- 参数配置方法说明
 
 ## OTHER CONSIDERATIONS:
 
-[Any other considerations or specific requirements - great place to include gotchas that you see AI coding assistants miss with your projects a lot]
+### 1. 简化设计原则
+- **参数精简**: 每个场景控制在15-20个关键参数
+- **算法简化**: 使用标准TOPSIS，但减少指标数量
+- **界面简洁**: 单页面应用，操作流程清晰
+- **计算快速**: 优化算法，确保响应迅速
+
+### 2. 用户体验
+- **直观操作**: 场景选择→参数输入→一键评估→结果查看
+- **实时反馈**: 参数输入时的即时验证
+- **全面展示**: 评估结果的多维度可视化显示
+- **易于理解**: 使用等级评定（优秀/良好/一般/较差）
+
+### 3. 前端显示要求
+- **雷达图**: 显示各维度得分
+- **柱状图**: 对比不同指标表现
+- **仪表盘**: 总体得分直观显示
+- **表格**: 详细数据展示
+- **文字建议**: 基于结果的改进建议
+
+### 4. 技术实现注意事项
+- **数据验证**: 输入参数的范围和格式检查
+- **异常处理**: 计算过程的错误处理
+- **配置灵活**: 支持权重和指标的调整
+- **性能优化**: 图表渲染速度优化
+
+### 5. 开发优先级
+1. **第一阶段**: 基础TOPSIS算法 + 参数输入界面
+2. **第二阶段**: 结果可视化图表展示
+3. **第三阶段**: 界面优化和用户体验改进

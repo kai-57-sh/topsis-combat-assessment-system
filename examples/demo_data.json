@@ -1,0 +1,148 @@
+{
+  "demo_scenarios": {
+    "chokepoint_blockade": {
+      "name": "要峡封控作战",
+      "description": "评估要道封锁作战体系的效能",
+      "parameters": {
+        "force_size": 600,
+        "ship_count": 30,
+        "aircraft_count": 60,
+        "personnel_quality": 0.85,
+        "weapon_effectiveness": 0.75,
+        "sensor_capability": 0.8,
+        "communication_reliability": 0.9,
+        "electronic_warfare": 0.65,
+        "sea_state": 2,
+        "visibility": 0.7,
+        "weather_severity": 2,
+        "blockade_effectiveness": 0.85,
+        "response_time": 4,
+        "mission_duration": 48
+      },
+      "expected_results": {
+        "overall_score": 0.75,
+        "performance_level": "良好",
+        "ranking": 2,
+        "indicator_scores": {
+          "overall_combat_power": 0.75,
+          "technological_superiority": 0.78,
+          "environmental_adaptability": 0.7,
+          "mission_achievement": 0.85,
+          "operational_efficiency": 0.65
+        }
+      }
+    },
+    "landing_zone_clearance": {
+      "name": "登陆场通道清扫",
+      "description": "评估登陆场清扫作战体系的效能",
+      "parameters": {
+        "amphibious_force": 2000,
+        "naval_vessels": 40,
+        "air_support": 75,
+        "special_forces": 200,
+        "mine_clearance_efficiency": 0.7,
+        "fire_support_accuracy": 0.8,
+        "landing_craft_capacity": 800,
+        "medical_support": 0.75,
+        "beach_gradient": 5,
+        "tidal_range": 2.0,
+        "wave_height": 1.5,
+        "clearance_rate": 0.6,
+        "casualty_tolerance": 5,
+        "time_pressure": 24
+      },
+      "expected_results": {
+        "overall_score": 0.68,
+        "performance_level": "良好",
+        "ranking": 3,
+        "indicator_scores": {
+          "overall_combat_power": 0.7,
+          "technological_superiority": 0.65,
+          "environmental_adaptability": 0.6,
+          "mission_achievement": 0.7,
+          "operational_efficiency": 0.65
+        }
+      }
+    },
+    "mine_countermeasures": {
+      "name": "水雷清排作战",
+      "description": "评估水雷清排作战体系的效能",
+      "parameters": {
+        "mine_hunters": 8,
+        "mine_sweepers": 12,
+        "diver_teams": 20,
+        "explosive_ordnance_disposal": 40,
+        "sonar_detection": 0.8,
+        "mine_neutralization": 0.75,
+        "robotic_systems": 0.6,
+        "command_control": 0.85,
+        "water_depth": 50,
+        "current_speed": 1.0,
+        "visibility_underwater": 0.4,
+        "clearance_area": 25,
+        "safety_level": 0.95,
+        "operational_tempo": 18
+      },
+      "expected_results": {
+        "overall_score": 0.72,
+        "performance_level": "良好",
+        "ranking": 2,
+        "indicator_scores": {
+          "overall_combat_power": 0.65,
+          "technological_superiority": 0.75,
+          "environmental_adaptability": 0.7,
+          "mission_achievement": 0.75,
+          "operational_efficiency": 0.7
+        }
+      }
+    },
+    "underwater_surveillance": {
+      "name": "近岸水下监视",
+      "description": "评估近岸水下监视作战体系的效能",
+      "parameters": {
+        "submarine_force": 4,
+        "surface_vessels": 15,
+        "maritime_patrol": 8,
+        "sensor_operators": 80,
+        "sonar_array_effectiveness": 0.8,
+        "signal_processing": 0.85,
+        "data_fusion": 0.7,
+        "communication_security": 0.9,
+        "water_clarity": 0.6,
+        "bathymetry_complexity": 5,
+        "ambient_noise": 0.4,
+        "coverage_area": 1000,
+        "detection_probability": 0.85,
+        "false_alarm_rate": 0.05
+      },
+      "expected_results": {
+        "overall_score": 0.82,
+        "performance_level": "优秀",
+        "ranking": 1,
+        "indicator_scores": {
+          "overall_combat_power": 0.7,
+          "technological_superiority": 0.9,
+          "environmental_adaptability": 0.8,
+          "mission_achievement": 0.85,
+          "operational_efficiency": 0.8
+        }
+      }
+    }
+  },
+  "usage_notes": {
+    "parameter_ranges": "所有参数值应在配置文件定义的最小值和最大值范围内",
+    "score_interpretation": {
+      "0.8-1.0": "优秀 - 作战体系效能优秀",
+      "0.6-0.8": "良好 - 作战体系效能良好",
+      "0.4-0.6": "一般 - 作战体系效能一般",
+      "0.0-0.4": "较差 - 作战体系效能较差"
+    },
+    "indicator_descriptions": {
+      "overall_combat_power": "总体作战能力 - 综合体现作战体系的整体实力",
+      "technological_superiority": "技术优势 - 体现技术装备和系统的先进性",
+      "environmental_adaptability": "环境适应性 - 在复杂环境条件下的适应能力",
+      "mission_achievement": "任务达成度 - 完成任务目标的能力",
+      "operational_efficiency": "作战效率 - 资源利用和作战行动的效率"
+    }
+  }
+}

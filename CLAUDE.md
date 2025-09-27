@@ -31,8 +31,8 @@
 ### 📎 Style & Conventions
 - **Use Python** as the primary language.
 - **Follow PEP8**, use type hints, and format with `black`.
-- **Use `pydantic` for data validation**.
-- Use `FastAPI` for APIs and `SQLAlchemy` or `SQLModel` for ORM if applicable.
+- **Use dataclasses for simple data structures** (简化应用，避免过度工程化).
+- **Use Streamlit for web interface** (单页面应用，简化前端开发).
 - Write **docstrings for every function** using the Google style:
   ```python
   def example():
@@ -46,6 +46,53 @@
           type: Description.
       """
   ```
+
+### 🎯 简化TOPSIS评估项目特定规范
+
+#### 项目结构
+```
+project/
+├── app.py                    # 主应用程序（单文件）
+├── config/                   # 配置文件
+│   ├── scenarios.yaml        # 四类场景配置
+│   └── weights.yaml         # 评估权重配置
+├── utils/                    # 工具函数
+│   ├── topsis.py            # TOPSIS算法实现
+│   ├── validation.py        # 数据验证
+│   └── visualization.py     # 图表生成
+├── tests/                    # 测试文件
+└── examples/                 # 示例数据
+```
+
+#### 简化原则
+- **单文件优先**: 主要功能集中在app.py中
+- **参数精简**: 每场景15-20个参数，避免复杂配置
+- **依赖最小化**: 只使用必要的库（numpy, pandas, streamlit, plotly）
+- **代码简洁**: 每个文件不超过300行
+- **测试简化**: 核心算法测试为主
+
+#### 核心依赖
+```
+numpy>=1.21.0
+pandas>=1.3.0
+streamlit>=1.28.0
+plotly>=5.0.0
+pyyaml>=6.0
+pytest>=6.0.0  # 开发依赖
+```
+
+#### 前端界面要求
+- **清晰流程**: 场景选择 → 参数输入 → 评估 → 结果展示
+- **实时验证**: 输入参数的即时验证
+- **全面显示**: 雷达图、柱状图、仪表盘、表格、建议
+- **响应式**: 适配不同屏幕尺寸
+- **性能优化**: 图表快速渲染
+
+#### 数据处理规范
+- **类型安全**: 使用type hints确保参数类型正确
+- **输入验证**: 检查参数范围和格式
+- **异常处理**: 友好的错误提示
+- **简化存储**: 使用YAML配置文件，避免数据库
 
 ### 📚 Documentation & Explainability
 - **Update `README.md`** when new features are added, dependencies change, or setup steps are modified.

@@ -17,7 +17,16 @@
       "Bash(python -m pytest:*)",
       "Bash(python3 -m pytest:*)",
       "WebFetch(domain:docs.anthropic.com)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebSearch",
+      "mcp__exa__web_search_exa",
+      "mcp__exa__get_code_context_exa",
+      "Bash(chmod:*)",
+      "Bash(pip install:*)",
+      "Bash(pkill:*)",
+      "Bash(streamlit run:*)",
+      "Bash(git config:*)"
     ],
     "deny": []
   }
