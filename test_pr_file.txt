@@ -1,0 +1,2 @@
+This file is created for testing Pull Request functionality via GitHub MCP tools.
+Created on test-mcp-branch for PR testing.
